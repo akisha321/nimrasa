@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Nimrasa Bakers | Fresh Baked Delights Daily</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes modalScale {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-modal {
+      animation: modalScale 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .star-btn {
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+    .star-btn:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body class="bg-amber-950/20 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950 bg-slate-950">
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-amber-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold shadow-lg shadow-amber-500/30 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-bread-slice text-lg"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold bg-gradient-to-r from-white via-amber-100 to-amber-400 bg-clip-text text-transparent">Nimrasa Bakers</span>
+          <span class="block text-xs text-amber-400 font-medium">Fresh Artisan Bakery & Cafe</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-amber-100/70">
+        <a href="#bakeryGrid" class="hover:text-amber-400 transition-colors">Our Menu</a>
+        <a href="#specials" class="hover:text-amber-400 transition-colors">Daily Specials</a>
+        <a href="#reviews" class="hover:text-amber-400 transition-colors">Customer Reviews</a>
+      </nav>
+
+      <!-- CTA Button in Navbar -->
+      <div class="flex items-center gap-4">
+        <button id="navReviewBtn" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-slate-950 font-bold text-sm shadow-md shadow-amber-600/25 transition-all duration-200 hover:shadow-amber-600/40 hover:-translate-y-0.5 active:translate-y-0">
+          <i class="fa-solid fa-star text-slate-950 text-xs"></i>
+          <span>Leave a Review</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow">
+    
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 lg:py-28 border-b border-amber-900/30 bg-slate-950">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-amber-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/80 border border-amber-700/50 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-8 shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+          <span>Freshly Baked Every Morning</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
+          Welcome to <span class="bg-gradient-to-r from-amber-400 via-orange-300 to-yellow-200 bg-clip-text text-transparent">Nimrasa Bakers</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-10">
+          Artisan breads, custom celebration cakes, and flaky pastries baked fresh daily with love and the finest ingredients. How was your experience today?
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button id="heroReviewBtn" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-base shadow-xl shadow-amber-500/20 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-3">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>Leave a Review</span>
+          </button>
+          <a href="#bakeryGrid" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-amber-900/40 text-amber-200 font-semibold text-base transition-colors flex items-center justify-center gap-2">
+            <span>Explore Menu</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <!-- Bakery Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
+          <div class="p-4 rounded-2xl bg-slate-900/60 border border-amber-900/30 backdrop-blur-sm">
+            <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">50+</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Fresh Items Daily</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-900/60 border border-amber-900/30 backdrop-blur-sm">
+            <div class="text-2xl sm:text-3xl font-extrabold text-orange-400">100%</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Natural Ingredients</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-900/60 border border-amber-900/30 backdrop-blur-sm">
+            <div class="text-2xl sm:text-3xl font-extrabold text-amber-300 flex items-center justify-center gap-1">
+              <span>4.9</span>
+              <i class="fa-solid fa-star text-sm"></i>
+            </div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Customer Rating</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-900/60 border border-amber-900/30 backdrop-blur-sm">
+            <div class="text-2xl sm:text-3xl font-extrabold text-yellow-400">15+</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Years of Baking</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Bakery Items Showcase Grid -->
+    <div id="bakeryGrid" class="py-20 bg-slate-900 border-b border-amber-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Fresh From The Oven</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Our Popular Bakery Items</h2>
+          <p class="text-slate-400 text-sm mt-2">Click any item below to review your favorite treat directly!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Item 1 -->
+          <div onclick="openModalWithItem('Custom Celebration Cakes')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🍰</div>
+            <h3 class="text-xl font-bold text-white mb-2">Custom Celebration Cakes</h3>
+            <p class="text-slate-400 text-sm mb-4">Handcrafted cakes tailored for your special milestones and birthdays.</p>
+            <span class="text-amber-400 font-bold">$25.00+</span>
+          </div>
+          <!-- Item 2 -->
+          <div onclick="openModalWithItem('Fresh Butter Pastries & Croissants')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🥐</div>
+            <h3 class="text-xl font-bold text-white mb-2">Fresh Butter Pastries</h3>
+            <p class="text-slate-400 text-sm mb-4">Flaky, buttery croissants baked to perfection every single morning.</p>
+            <span class="text-amber-400 font-bold">$3.50</span>
+          </div>
+          <!-- Item 3 -->
+          <div onclick="openModalWithItem('Artisan Breads & Buns')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🥖</div>
+            <h3 class="text-xl font-bold text-white mb-2">Artisan Breads & Buns</h3>
+            <p class="text-slate-400 text-sm mb-4">Rustic sourdough and wholesome grain loaves crafted by master bakers.</p>
+            <span class="text-amber-400 font-bold">$4.00+</span>
+          </div>
+          <!-- Item 4 -->
+          <div onclick="openModalWithItem('Savory Rolls & Patties')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🥪</div>
+            <h3 class="text-xl font-bold text-white mb-2">Savory Rolls & Patties</h3>
+            <p class="text-slate-400 text-sm mb-4">Flavorful fillings wrapped in golden, crisp pastry shells.</p>
+            <span class="text-amber-400 font-bold">$2.50</span>
+          </div>
+          <!-- Item 5 -->
+          <div onclick="openModalWithItem('Cupcakes & Muffins')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🧁</div>
+            <h3 class="text-xl font-bold text-white mb-2">Cupcakes & Muffins</h3>
+            <p class="text-slate-400 text-sm mb-4">Delightfully sweet frosted treats for an instant mood booster.</p>
+            <span class="text-amber-400 font-bold">$3.00</span>
+          </div>
+          <!-- Item 6 -->
+          <div onclick="openModalWithItem('Fresh Cookies & Biscuits')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🍪</div>
+            <h3 class="text-xl font-bold text-white mb-2">Fresh Cookies & Biscuits</h3>
+            <p class="text-slate-400 text-sm mb-4">Crispy, chewy, and loaded with rich chocolate chunks and nuts.</p>
+            <span class="text-amber-400 font-bold">$2.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Specials Section -->
+    <section id="specials" class="py-20 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Baking Schedule</span>
+          <h2 class="text-3xl font-bold text-white tracking-tight mt-1">Daily Fresh Hours & Specials</h2>
+          <p class="text-slate-400 mt-2">Catch our freshest batches right out of the oven every day.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-slate-900/60 border border-amber-900/30 rounded-2xl p-6 hover:border-amber-500/50 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-amber-400 font-semibold mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-amber-950 border border-amber-800">MORNING BATCH</span>
+                <span>06:30 AM - 09:00 AM</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Warm Croissants & Fresh Sourdough</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">Pair your morning coffee with fresh, flaky butter croissants and hot sourdough breads right out of the stone oven.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center text-xs font-bold text-slate-950">NB</div>
+              <span class="text-xs text-slate-400 font-medium">Baked fresh daily at dawn</span>
+            </div>
+          </div>
+
+          <div class="bg-slate-900/60 border border-amber-900/30 rounded-2xl p-6 hover:border-amber-500/50 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-orange-400 font-semibold mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-orange-950 border border-orange-800">MIDDAY SPECIAL</span>
+                <span>12:00 PM - 02:30 PM</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Savory Pastries & Warm Buns</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">Hot savory pies, chicken patties, and spiced cheese rolls prepared fresh for lunch hour snacking.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-xs font-bold text-slate-950">NB</div>
+              <span class="text-xs text-slate-400 font-medium">Perfect midday lunch treats</span>
+            </div>
+          </div>
+
+          <div class="bg-slate-900/60 border border-amber-900/30 rounded-2xl p-6 hover:border-amber-500/50 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-yellow-400 font-semibold mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-yellow-950 border border-yellow-800">EVENING DESSERTS</span>
+                <span>04:00 PM - 08:00 PM</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Sweet Cakes & Tea Biscuits</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">Relax in the evening with artisan dessert slices, frosted cupcakes, and crisp butter biscuits.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-xs font-bold text-slate-950">NB</div>
+              <span class="text-xs text-slate-400 font-medium">Sweet finish to your day</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Showcase Section -->
+    <section id="reviews" class="py-20 bg-slate-900 border-t border-amber-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Customer Voice</span>
+            <h2 class="text-3xl font-bold text-white mt-1">Recent Customer Reviews</h2>
+          </div>
+          <button id="sectionReviewBtn" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-amber-900/40 text-sm font-semibold text-amber-200 transition-colors">
+            <i class="fa-solid fa-plus text-amber-400"></i>
+            <span>Add Your Review</span>
+          </button>
+        </div>
+
+        <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated dynamically by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-amber-900/30 py-12 text-sm text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 text-xs font-bold">NB</div>
+        <p>© 2026 Nimrasa Bakers. All rights reserved.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button id="footerReviewBtn" class="hover:text-amber-300 transition-colors">Submit Review</button>
+        <a href="#" class="hover:text-amber-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-amber-300 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL OVERLAY (Immediate Review Prompt) -->
+  <!-- ========================================== -->
+  <div id="feedbackModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+    <div class="relative w-full max-w-lg bg-slate-900 border border-amber-900/40 rounded-2xl shadow-2xl overflow-hidden animate-modal">
+      <div class="h-1.5 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400"></div>
+
+      <button id="closeModalCross" aria-label="Close modal" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="p-6 sm:p-8">
+        <!-- View 1: Feedback Form -->
+        <div id="modalFormContent" class="block">
+          <div class="text-center mb-6">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-950/80 border border-amber-700/40 text-amber-400 flex items-center justify-center text-2xl shadow-inner">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white tracking-tight">How was your treat today?</h3>
+            <p class="text-sm text-slate-400 mt-1">We'd love to hear your thoughts on Nimrasa Bakers!</p>
+          </div>
+
+          <form id="feedbackForm" class="space-y-6" onsubmit="handleFormSubmit(event)">
+            <!-- Item Context Badge (When clicked from menu grid) -->
+            <div id="itemContextTag" class="hidden text-center mb-2">
+              <span class="px-3 py-1 rounded-full bg-amber-950/80 text-amber-300 text-xs font-semibold border border-amber-700/50 inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-utensils text-[10px]"></i>
+                Reviewing: <span id="selectedItemName"></span>
+              </span>
+            </div>
+
+            <!-- 5-Star Rating Component -->
+            <div class="space-y-2">
+              <label class="block text-center text-xs font-semibold uppercase tracking-wider text-slate-300">
+                Rate Your Experience
+              </label>
+              
+              <div id="starContainer" class="flex items-center justify-center gap-2 py-2">
+                <button type="button" data-rating="1" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="1 star">
+                  <i class="fa-solid fa-star text-3xl"></i>
+                </button>
+                <button type="button" data-rating="2" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="2 stars">
+                  <i class="fa-solid fa-star text-3xl"></i>
+                </button>
+                <button type="button" data-rating="3" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="3 stars">
+                  <i class="fa-solid fa-star text-3xl"></i>
+                </button>
+                <button type="button" data-rating="4" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="4 stars">
+                  <i class="fa-solid fa-star text-3xl"></i>
+                </button>
+                <button type="button" data-rating="5" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="5 stars">
+                  <i class="fa-solid fa-star text-3xl"></i>
+                </button>
+              </div>
+
+              <div id="ratingLabel" class="text-center text-xs font-medium text-slate-400 min-h-[1.25rem]">
+                Select a rating
+              </div>
+            </div>
+
+            <!-- Feedback Comment -->
+            <div>
+              <label for="feedbackComment" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                What did you enjoy most or suggest we improve?
+              </label>
+              <textarea 
+                id="feedbackComment" 
+                rows="3" 
+                placeholder="Share your thoughts about our bakery items or service..."
+                class="w-full px-4 py-3 bg-slate-950 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all resize-none"
+              ></textarea>
+            </div>
+
+            <div id="validationMsg" class="hidden text-xs text-rose-400 text-center font-medium">
+              <i class="fa-solid fa-triangle-exclamation mr-1"></i> Please select a star rating before submitting.
+            </div>
+
+            <div class="space-y-3 pt-2">
+              <button 
+                type="submit" 
+                class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-[0.99]"
+              >
+                Submit Review
+              </button>
+              
+              <div class="text-center">
+                <button 
+                  type="button" 
+                  id="skipModal" 
+                  class="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors py-1"
+                >
+                  Skip to Site
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- View 2: Thank You Confirmation Message -->
+        <div id="modalSuccessContent" class="hidden text-center py-8">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-3xl shadow-lg shadow-emerald-900/40 animate-bounce">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Thank you for your review!</h3>
+          <p class="text-sm text-slate-300 max-w-xs mx-auto">
+            Your feedback helps Nimrasa Bakers keep baking delicious treats for everyone!
+          </p>
+          <div class="mt-6 inline-flex items-center gap-2 text-xs text-amber-400 font-medium">
+            <i class="fa-solid fa-circle-notch animate-spin"></i>
+            <span>Closing window...</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    let currentRating = 0;
+    let hoverRating = 0;
+
+    const ratingDescriptions = {
+      1: "Needs Improvement 😞",
+      2: "Fair 😐",
+      3: "Good 🙂",
+      4: "Delicious! 😄",
+      5: "Exceptional! 🥐"
+    };
+
+    const modal = document.getElementById('feedbackModal');
+    const modalFormContent = document.getElementById('modalFormContent');
+    const modalSuccessContent = document.getElementById('modalSuccessContent');
+    const closeModalCross = document.getElementById('closeModalCross');
+    const skipModalBtn = document.getElementById('skipModal');
+    const starBtns = document.querySelectorAll('#starContainer .star-btn');
+    const ratingLabel = document.getElementById('ratingLabel');
+    const feedbackComment = document.getElementById('feedbackComment');
+    const validationMsg = document.getElementById('validationMsg');
+    const reviewsGrid = document.getElementById('reviewsGrid');
+
+    const defaultReviews = [
+      {
+        id: 1, rating: 5,
+        comment: "Absolutely loved the Custom Celebration Cake! It was moist, beautifully decorated, and not too sweet. Perfect!",
+        author: "Sarah Jenkins", role: "Custom Cake Customer", timestamp: "10 mins ago"
+      },
+      {
+        id: 2, rating: 5,
+        comment: "The buttery croissants here are to die for! Flaky, warm, and melt-in-the-mouth. Highly recommended!",
+        author: "David Chen", role: "Regular Customer", timestamp: "35 mins ago"
+      },
+      {
+        id: 3, rating: 4,
+        comment: "Great customer service and their artisan bread is fantastic. Perfect crust and crumb!",
+        author: "Elena Rostova", role: "Local Foodie", timestamp: "1 hour ago"
+      }
+    ];
+
+    function openModal() {
+      modalFormContent.classList.remove('hidden');
+      modalSuccessContent.classList.add('hidden');
+      validationMsg.classList.add('hidden');
+      resetRatingState();
+      feedbackComment.value = '';
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function openModalWithItem(itemName) {
+      const tag = document.getElementById('itemContextTag');
+      const nameSpan = document.getElementById('selectedItemName');
+      if (itemName) {
+        tag.classList.remove('hidden');
+        nameSpan.textContent = itemName;
+      } else {
+        tag.classList.add('hidden');
+      }
+      openModal();
+    }
+
+    function closeModal() {
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function updateStarVisuals(ratingToHighlight) {
+      starBtns.forEach((btn) => {
+        const starRating = parseInt(btn.getAttribute('data-rating'), 10);
+        if (starRating <= ratingToHighlight) {
+          btn.classList.remove('text-slate-600');
+          btn.classList.add('text-amber-400');
+        } else {
+          btn.classList.remove('text-amber-400');
+          btn.classList.add('text-slate-600');
+        }
+      });
+    }
+
+    function resetRatingState() {
+      currentRating = 0;
+      hoverRating = 0;
+      updateStarVisuals(0);
+      ratingLabel.textContent = "Select a rating";
+      ratingLabel.className = "text-center text-xs font-medium text-slate-400 min-h-[1.25rem]";
+    }
+
+    starBtns.forEach((btn) => {
+      const ratingVal = parseInt(btn.getAttribute('data-rating'), 10);
+
+      btn.addEventListener('mouseenter', () => {
+        hoverRating = ratingVal;
+        updateStarVisuals(hoverRating);
+        ratingLabel.textContent = ratingDescriptions[hoverRating] || "Select a rating";
+        ratingLabel.className = "text-center text-xs font-semibold text-amber-300 min-h-[1.25rem]";
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        hoverRating = 0;
+        updateStarVisuals(currentRating);
+        if (currentRating > 0) {
+          ratingLabel.textContent = ratingDescriptions[currentRating];
+          ratingLabel.className = "text-center text-xs font-semibold text-amber-300 min-h-[1.25rem]";
+        } else {
+          ratingLabel.textContent = "Select a rating";
+          ratingLabel.className = "text-center text-xs font-medium text-slate-400 min-h-[1.25rem]";
+        }
+      });
+
+      btn.addEventListener('click', () => {
+        currentRating = ratingVal;
+        validationMsg.classList.add('hidden');
+        updateStarVisuals(currentRating);
+        ratingLabel.textContent = ratingDescriptions[currentRating];
+        ratingLabel.className = "text-center text-xs font-semibold text-amber-300 min-h-[1.25rem]";
+      });
+    });
+
+    // Trigger Buttons for opening modal
+    const triggerButtons = [
+      document.getElementById('navReviewBtn'),
+      document.getElementById('heroReviewBtn'),
+      document.getElementById('sectionReviewBtn'),
+      document.getElementById('footerReviewBtn')
+    ];
+
+    // --- Form Submission Handling ---
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      if (currentRating === 0) {
+        validationMsg.classList.remove('hidden');
+        return;
+      }
+
+      const commentText = feedbackComment.value.trim();
+      const selectedItem = document.getElementById('selectedItemName').textContent;
+
+      const feedbackData = {
+        id: Date.now(),
+        rating: currentRating,
+        comment: commentText || (selectedItem ? `Loved the ${selectedItem}!` : "Great bakery treats!"),
+        author: "Bakery Guest",
+        role: selectedItem ? `Reviewed ${selectedItem}` : "Verified Buyer",
+        timestamp: "Just now",
+        createdAt: new Date().toISOString()
+      };
+
+      // 1. Log to Browser Console
+      console.log("%c★ Nimrasa Bakers Review Received! ★", "color: #f59e0b; font-weight: bold; font-size: 14px;");
+      console.log("Rating:", currentRating, "out of 5 stars");
+      console.log("Item:", selectedItem || "General Bakery Review");
+      console.log("Written Feedback:", commentText || "(None provided)");
+
+      // 2. Save to localStorage
+      try {
+        const stored = JSON.parse(localStorage.getItem('bakery_feedbacks') || '[]');
+        stored.unshift(feedbackData);
+        localStorage.setItem('bakery_feedbacks', JSON.stringify(stored));
+      } catch (err) {
+        console.warn("Could not save to localStorage:", err);
+      }
+
+      // 3. Re-render dynamic reviews section
+      renderReviews();
+
+      // 4. Replace form content with confirmation message
+      modalFormContent.classList.add('hidden');
+      modalSuccessContent.classList.remove('hidden');
+
+      // 5. Auto-close modal after 2 seconds
+      setTimeout(() => {
+        closeModal();
+      }, 2000);
+    }
+
+    // --- Render Feedback Cards in Showcase Section ---
+    function renderReviews() {
+      let savedFeedbacks = [];
+      try {
+        savedFeedbacks = JSON.parse(localStorage.getItem('bakery_feedbacks') || '[]');
+      } catch (e) {
+        savedFeedbacks = [];
+      }
+
+      const allReviews = [...savedFeedbacks, ...defaultReviews];
+      reviewsGrid.innerHTML = '';
+
+      allReviews.slice(0, 6).forEach((rev) => {
+        let starsHtml = '';
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rev.rating) {
+            starsHtml += '<i class="fa-solid fa-star text-amber-400 text-sm"></i>';
+          } else {
+            starsHtml += '<i class="fa-solid fa-star text-slate-700 text-sm"></i>';
+          }
+        }
+
+        const card = document.createElement('div');
+        card.className = "bg-slate-950 border border-amber-900/30 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/40 transition-all shadow-md";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1">
+                ${starsHtml}
+              </div>
+              <span class="text-xs text-slate-500 font-medium">${escapeHtml(rev.timestamp)}</span>
+            </div>
+            <p class="text-sm text-slate-300 italic mb-6 leading-relaxed">"${escapeHtml(rev.comment)}"</p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-800/80 pt-4">
+            <div class="w-8 h-8 rounded-full bg-slate-900 border border-amber-900/40 flex items-center justify-center text-xs font-bold text-amber-400">
+              ${escapeHtml(rev.author.charAt(0))}
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-white">${escapeHtml(rev.author)}</div>
+              <div class="text-[11px] text-amber-400/80">${escapeHtml(rev.role)}</div>
+            </div>
+          </div>
+        `;
+        reviewsGrid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // --- Page Initialization ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Display modal prompt 0.8s after page loads
+      setTimeout(() => {
+        openModal();
+      }, 800);
+
+      // 2. Render initial customer reviews
+      renderReviews();
+
+      // 3. Skip & close button listeners
+      closeModalCross.addEventListener('click', closeModal);
+      skipModalBtn.addEventListener('click', closeModal);
+
+      // Close when clicking modal backdrop
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Escape key closes modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('opacity-0')) {
+          closeModal();
+        }
+      });
+
+      // Re-open modal buttons
+      triggerButtons.forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', () => {
+            document.getElementById('itemContextTag').classList.add('hidden');
+            openModal();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
