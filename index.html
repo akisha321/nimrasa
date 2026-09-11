@@ -39,7 +39,7 @@
     }
   </style>
 </head>
-<body class="bg-amber-950/20 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950 bg-slate-950">
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
 
   <!-- Sticky Navbar -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-amber-900/30">
@@ -55,7 +55,7 @@
         </div>
       </a>
 
-      <!-- Navigation Links -->
+      <!-- Navigation Links (Admin Link Removed) -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-amber-100/70">
         <a href="#bakeryGrid" class="hover:text-amber-400 transition-colors">Our Menu</a>
         <a href="#specials" class="hover:text-amber-400 transition-colors">Daily Specials</a>
@@ -116,15 +116,15 @@
             <div class="text-xs text-slate-400 font-medium mt-1">Natural Ingredients</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-900/60 border border-amber-900/30 backdrop-blur-sm">
-            <div class="text-2xl sm:text-3xl font-extrabold text-amber-300 flex items-center justify-center gap-1">
+            <div id="averageRatingDisplay" class="text-2xl sm:text-3xl font-extrabold text-amber-300 flex items-center justify-center gap-1">
               <span>4.9</span>
               <i class="fa-solid fa-star text-sm"></i>
             </div>
             <div class="text-xs text-slate-400 font-medium mt-1">Customer Rating</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-900/60 border border-amber-900/30 backdrop-blur-sm">
-            <div class="text-2xl sm:text-3xl font-extrabold text-yellow-400">15+</div>
-            <div class="text-xs text-slate-400 font-medium mt-1">Years of Baking</div>
+            <div id="totalReviewsCount" class="text-2xl sm:text-3xl font-extrabold text-yellow-400">0</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">Total Reviews Saved</div>
           </div>
         </div>
       </div>
@@ -140,42 +140,36 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Item 1 -->
           <div onclick="openModalWithItem('Custom Celebration Cakes')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
             <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🍰</div>
             <h3 class="text-xl font-bold text-white mb-2">Custom Celebration Cakes</h3>
             <p class="text-slate-400 text-sm mb-4">Handcrafted cakes tailored for your special milestones and birthdays.</p>
             <span class="text-amber-400 font-bold">$25.00+</span>
           </div>
-          <!-- Item 2 -->
           <div onclick="openModalWithItem('Fresh Butter Pastries & Croissants')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
             <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🥐</div>
             <h3 class="text-xl font-bold text-white mb-2">Fresh Butter Pastries</h3>
             <p class="text-slate-400 text-sm mb-4">Flaky, buttery croissants baked to perfection every single morning.</p>
             <span class="text-amber-400 font-bold">$3.50</span>
           </div>
-          <!-- Item 3 -->
           <div onclick="openModalWithItem('Artisan Breads & Buns')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
             <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🥖</div>
             <h3 class="text-xl font-bold text-white mb-2">Artisan Breads & Buns</h3>
             <p class="text-slate-400 text-sm mb-4">Rustic sourdough and wholesome grain loaves crafted by master bakers.</p>
             <span class="text-amber-400 font-bold">$4.00+</span>
           </div>
-          <!-- Item 4 -->
           <div onclick="openModalWithItem('Savory Rolls & Patties')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
             <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🥪</div>
             <h3 class="text-xl font-bold text-white mb-2">Savory Rolls & Patties</h3>
             <p class="text-slate-400 text-sm mb-4">Flavorful fillings wrapped in golden, crisp pastry shells.</p>
             <span class="text-amber-400 font-bold">$2.50</span>
           </div>
-          <!-- Item 5 -->
           <div onclick="openModalWithItem('Cupcakes & Muffins')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
             <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🧁</div>
             <h3 class="text-xl font-bold text-white mb-2">Cupcakes & Muffins</h3>
             <p class="text-slate-400 text-sm mb-4">Delightfully sweet frosted treats for an instant mood booster.</p>
             <span class="text-amber-400 font-bold">$3.00</span>
           </div>
-          <!-- Item 6 -->
           <div onclick="openModalWithItem('Fresh Cookies & Biscuits')" class="cursor-pointer group bg-slate-950/60 border border-amber-900/30 p-6 rounded-2xl backdrop-blur-sm hover:border-amber-500/50 hover:bg-slate-950 transition-all duration-300 shadow-md">
             <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🍪</div>
             <h3 class="text-xl font-bold text-white mb-2">Fresh Cookies & Biscuits</h3>
@@ -244,7 +238,7 @@
       </div>
     </section>
 
-    <!-- Feedback Showcase Section -->
+    <!-- Feedback Showcase Section (Public Views) -->
     <section id="reviews" class="py-20 bg-slate-900 border-t border-amber-900/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -259,8 +253,86 @@
         </div>
 
         <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Populated dynamically by JavaScript -->
+          <!-- Dynamically filled with JavaScript -->
         </div>
+      </div>
+    </section>
+
+    <!-- Hidden Admin Container (Triggers only when URL contains #admin123) -->
+    <section id="adminSection" class="hidden py-16 bg-slate-950 border-t border-amber-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Password Authorization Gate -->
+        <div id="adminAuthGate" class="max-w-md mx-auto bg-slate-900/80 border border-amber-900/40 rounded-2xl p-8 backdrop-blur-sm text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-950/80 border border-amber-700/40 text-amber-400 flex items-center justify-center text-2xl shadow-inner">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Admin Management Lock</h3>
+          <p class="text-xs text-slate-400 mt-1 mb-6">Enter password to manage and delete saved reviews.</p>
+
+          <form onsubmit="verifyAdminPassword(event)" class="space-y-4">
+            <div>
+              <input 
+                type="password" 
+                id="adminPassInput" 
+                placeholder="Enter Admin Password" 
+                class="w-full px-4 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-amber-500 transition-all text-center tracking-widest"
+              >
+            </div>
+            <div id="adminAuthError" class="hidden text-xs text-rose-400 font-medium">
+              <i class="fa-solid fa-circle-exclamation mr-1"></i> Incorrect password. Please try again.
+            </div>
+            <button 
+              type="submit" 
+              class="w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+            >
+              Unlock Management Panel
+            </button>
+          </form>
+        </div>
+
+        <!-- Deletable Content (Revealed after password verification) -->
+        <div id="adminPanelContent" class="hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950 border border-emerald-800/60 text-emerald-400 text-xs font-semibold mb-2">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Admin Session Active</span>
+              </div>
+              <h2 class="text-2xl font-bold text-white">Review Management Log</h2>
+              <p class="text-xs text-slate-400 mt-1">Inspect, manage, and delete saved customer reviews.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="lockAdminPanel()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-xs font-semibold transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-lock"></i>
+                <span>Lock Panel</span>
+              </button>
+              <button onclick="clearAllReviews()" class="px-4 py-2 rounded-lg bg-rose-950/60 border border-rose-800/40 text-rose-300 hover:bg-rose-900/60 text-xs font-semibold transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-trash-can"></i>
+                <span>Clear Saved Reviews</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto bg-slate-900/60 border border-amber-900/30 rounded-2xl backdrop-blur-sm">
+            <table class="w-full text-left text-sm text-slate-300">
+              <thead class="bg-slate-950/80 text-xs font-semibold text-amber-400 uppercase border-b border-amber-900/30">
+                <tr>
+                  <th class="px-6 py-4">Author</th>
+                  <th class="px-6 py-4">Rating</th>
+                  <th class="px-6 py-4">Reviewed Item / Role</th>
+                  <th class="px-6 py-4">Comment</th>
+                  <th class="px-6 py-4">Submitted At</th>
+                  <th class="px-6 py-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reviewsTableBody" class="divide-y divide-slate-800/60">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -281,9 +353,7 @@
     </div>
   </footer>
 
-  <!-- ========================================== -->
-  <!-- MODAL OVERLAY (Immediate Review Prompt) -->
-  <!-- ========================================== -->
+  <!-- Modal Overlay -->
   <div id="feedbackModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
     <div class="relative w-full max-w-lg bg-slate-900 border border-amber-900/40 rounded-2xl shadow-2xl overflow-hidden animate-modal">
       <div class="h-1.5 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400"></div>
@@ -303,8 +373,7 @@
             <p class="text-sm text-slate-400 mt-1">We'd love to hear your thoughts on Nimrasa Bakers!</p>
           </div>
 
-          <form id="feedbackForm" class="space-y-6" onsubmit="handleFormSubmit(event)">
-            <!-- Item Context Badge (When clicked from menu grid) -->
+          <form id="feedbackForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
             <div id="itemContextTag" class="hidden text-center mb-2">
               <span class="px-3 py-1 rounded-full bg-amber-950/80 text-amber-300 text-xs font-semibold border border-amber-700/50 inline-flex items-center gap-1.5">
                 <i class="fa-solid fa-utensils text-[10px]"></i>
@@ -312,46 +381,26 @@
               </span>
             </div>
 
-            <!-- 5-Star Rating Component -->
-            <div class="space-y-2">
-              <label class="block text-center text-xs font-semibold uppercase tracking-wider text-slate-300">
-                Rate Your Experience
-              </label>
-              
-              <div id="starContainer" class="flex items-center justify-center gap-2 py-2">
-                <button type="button" data-rating="1" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="1 star">
-                  <i class="fa-solid fa-star text-3xl"></i>
-                </button>
-                <button type="button" data-rating="2" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="2 stars">
-                  <i class="fa-solid fa-star text-3xl"></i>
-                </button>
-                <button type="button" data-rating="3" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="3 stars">
-                  <i class="fa-solid fa-star text-3xl"></i>
-                </button>
-                <button type="button" data-rating="4" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="4 stars">
-                  <i class="fa-solid fa-star text-3xl"></i>
-                </button>
-                <button type="button" data-rating="5" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="5 stars">
-                  <i class="fa-solid fa-star text-3xl"></i>
-                </button>
-              </div>
-
-              <div id="ratingLabel" class="text-center text-xs font-medium text-slate-400 min-h-[1.25rem]">
-                Select a rating
-              </div>
+            <div>
+              <label for="authorName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Your Name</label>
+              <input type="text" id="authorName" placeholder="e.g. Alex Morgan" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-amber-500 transition-all">
             </div>
 
-            <!-- Feedback Comment -->
+            <div class="space-y-2">
+              <label class="block text-center text-xs font-semibold uppercase tracking-wider text-slate-300">Rate Your Experience</label>
+              <div id="starContainer" class="flex items-center justify-center gap-2 py-1">
+                <button type="button" data-rating="1" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="1 star"><i class="fa-solid fa-star text-3xl"></i></button>
+                <button type="button" data-rating="2" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="2 stars"><i class="fa-solid fa-star text-3xl"></i></button>
+                <button type="button" data-rating="3" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="3 stars"><i class="fa-solid fa-star text-3xl"></i></button>
+                <button type="button" data-rating="4" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="4 stars"><i class="fa-solid fa-star text-3xl"></i></button>
+                <button type="button" data-rating="5" class="star-btn p-1 text-slate-600 hover:text-amber-400 focus:outline-none" aria-label="5 stars"><i class="fa-solid fa-star text-3xl"></i></button>
+              </div>
+              <div id="ratingLabel" class="text-center text-xs font-medium text-slate-400 min-h-[1.25rem]">Select a rating</div>
+            </div>
+
             <div>
-              <label for="feedbackComment" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                What did you enjoy most or suggest we improve?
-              </label>
-              <textarea 
-                id="feedbackComment" 
-                rows="3" 
-                placeholder="Share your thoughts about our bakery items or service..."
-                class="w-full px-4 py-3 bg-slate-950 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all resize-none"
-              ></textarea>
+              <label for="feedbackComment" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Your Review / Suggestions</label>
+              <textarea id="feedbackComment" rows="3" placeholder="Share your thoughts about our bakery items or service..." class="w-full px-4 py-3 bg-slate-950 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-amber-500 transition-all resize-none"></textarea>
             </div>
 
             <div id="validationMsg" class="hidden text-xs text-rose-400 text-center font-medium">
@@ -359,49 +408,47 @@
             </div>
 
             <div class="space-y-3 pt-2">
-              <button 
-                type="submit" 
-                class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-[0.99]"
-              >
-                Submit Review
+              <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-[0.99]">
+                Save & Post Review
               </button>
-              
               <div class="text-center">
-                <button 
-                  type="button" 
-                  id="skipModal" 
-                  class="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors py-1"
-                >
-                  Skip to Site
-                </button>
+                <button type="button" id="skipModal" class="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors py-1">Skip to Site</button>
               </div>
             </div>
           </form>
         </div>
 
-        <!-- View 2: Thank You Confirmation Message -->
+        <!-- View 2: Submission Success -->
         <div id="modalSuccessContent" class="hidden text-center py-8">
           <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-3xl shadow-lg shadow-emerald-900/40 animate-bounce">
             <i class="fa-solid fa-check"></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Thank you for your review!</h3>
-          <p class="text-sm text-slate-300 max-w-xs mx-auto">
-            Your feedback helps Nimrasa Bakers keep baking delicious treats for everyone!
-          </p>
-          <div class="mt-6 inline-flex items-center gap-2 text-xs text-amber-400 font-medium">
-            <i class="fa-solid fa-circle-notch animate-spin"></i>
-            <span>Closing window...</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Review Saved & Published!</h3>
+          <p class="text-sm text-slate-300 max-w-xs mx-auto">Your review is now stored and visible to all visitors.</p>
+        </div>
+
+        <!-- View 3: Review Inspection -->
+        <div id="modalInspectContent" class="hidden py-4">
+          <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-800 pb-3">Review Inspection</h3>
+          <div class="space-y-3 text-sm text-slate-300">
+            <div><strong class="text-amber-400">Author:</strong> <span id="inspectAuthor"></span></div>
+            <div><strong class="text-amber-400">Rating:</strong> <span id="inspectStars"></span></div>
+            <div><strong class="text-amber-400">Context:</strong> <span id="inspectItem"></span></div>
+            <div><strong class="text-amber-400">Comment:</strong> <p id="inspectComment" class="mt-1 p-3 bg-slate-950 border border-slate-800 rounded-lg text-slate-200 italic"></p></div>
+            <div><strong class="text-amber-400">Date/Time:</strong> <span id="inspectTimestamp"></span></div>
           </div>
+          <button onclick="closeModal()" class="mt-6 w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs">Close Details</button>
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- JavaScript Application Logic -->
+  <!-- JavaScript Logic -->
   <script>
     let currentRating = 0;
     let hoverRating = 0;
+    const ADMIN_PASSWORD = "Akila123";
 
     const ratingDescriptions = {
       1: "Needs Improvement 😞",
@@ -414,38 +461,87 @@
     const modal = document.getElementById('feedbackModal');
     const modalFormContent = document.getElementById('modalFormContent');
     const modalSuccessContent = document.getElementById('modalSuccessContent');
+    const modalInspectContent = document.getElementById('modalInspectContent');
     const closeModalCross = document.getElementById('closeModalCross');
     const skipModalBtn = document.getElementById('skipModal');
     const starBtns = document.querySelectorAll('#starContainer .star-btn');
     const ratingLabel = document.getElementById('ratingLabel');
     const feedbackComment = document.getElementById('feedbackComment');
+    const authorNameInput = document.getElementById('authorName');
     const validationMsg = document.getElementById('validationMsg');
     const reviewsGrid = document.getElementById('reviewsGrid');
+    const reviewsTableBody = document.getElementById('reviewsTableBody');
 
     const defaultReviews = [
       {
-        id: 1, rating: 5,
+        id: "def-1", rating: 5,
         comment: "Absolutely loved the Custom Celebration Cake! It was moist, beautifully decorated, and not too sweet. Perfect!",
-        author: "Sarah Jenkins", role: "Custom Cake Customer", timestamp: "10 mins ago"
+        author: "Sarah Jenkins", role: "Custom Celebration Cakes", timestamp: "10 mins ago"
       },
       {
-        id: 2, rating: 5,
+        id: "def-2", rating: 5,
         comment: "The buttery croissants here are to die for! Flaky, warm, and melt-in-the-mouth. Highly recommended!",
-        author: "David Chen", role: "Regular Customer", timestamp: "35 mins ago"
+        author: "David Chen", role: "Fresh Butter Pastries", timestamp: "35 mins ago"
       },
       {
-        id: 3, rating: 4,
+        id: "def-3", rating: 4,
         comment: "Great customer service and their artisan bread is fantastic. Perfect crust and crumb!",
-        author: "Elena Rostova", role: "Local Foodie", timestamp: "1 hour ago"
+        author: "Elena Rostova", role: "Artisan Breads & Buns", timestamp: "1 hour ago"
       }
     ];
 
+    /* --- Hash Routing & URL Trigger (#admin123) --- */
+    function checkUrlHash() {
+      const adminSec = document.getElementById('adminSection');
+      if (window.location.hash === '#admin123') {
+        adminSec.classList.remove('hidden');
+        if (sessionStorage.getItem('adminAuthenticated') === 'true') {
+          showAdminPanel();
+        } else {
+          document.getElementById('adminAuthGate').classList.remove('hidden');
+          document.getElementById('adminPanelContent').classList.add('hidden');
+        }
+      } else {
+        adminSec.classList.add('hidden');
+      }
+    }
+
+    /* --- Password Verification Logic --- */
+    function verifyAdminPassword(event) {
+      event.preventDefault();
+      const pass = document.getElementById('adminPassInput').value;
+      const errorMsg = document.getElementById('adminAuthError');
+
+      if (pass === ADMIN_PASSWORD) {
+        errorMsg.classList.add('hidden');
+        sessionStorage.setItem('adminAuthenticated', 'true');
+        showAdminPanel();
+      } else {
+        errorMsg.classList.remove('hidden');
+      }
+    }
+
+    function showAdminPanel() {
+      document.getElementById('adminAuthGate').classList.add('hidden');
+      document.getElementById('adminPanelContent').classList.remove('hidden');
+    }
+
+    function lockAdminPanel() {
+      sessionStorage.removeItem('adminAuthenticated');
+      document.getElementById('adminPassInput').value = '';
+      document.getElementById('adminAuthGate').classList.remove('hidden');
+      document.getElementById('adminPanelContent').classList.add('hidden');
+    }
+
+    /* --- Modal & Rating Logic --- */
     function openModal() {
       modalFormContent.classList.remove('hidden');
       modalSuccessContent.classList.add('hidden');
+      modalInspectContent.classList.add('hidden');
       validationMsg.classList.add('hidden');
       resetRatingState();
       feedbackComment.value = '';
+      if (authorNameInput) authorNameInput.value = '';
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modal.classList.add('opacity-100', 'pointer-events-auto');
     }
@@ -519,15 +615,6 @@
       });
     });
 
-    // Trigger Buttons for opening modal
-    const triggerButtons = [
-      document.getElementById('navReviewBtn'),
-      document.getElementById('heroReviewBtn'),
-      document.getElementById('sectionReviewBtn'),
-      document.getElementById('footerReviewBtn')
-    ];
-
-    // --- Form Submission Handling ---
     function handleFormSubmit(event) {
       event.preventDefault();
 
@@ -538,65 +625,56 @@
 
       const commentText = feedbackComment.value.trim();
       const selectedItem = document.getElementById('selectedItemName').textContent;
+      const author = authorNameInput && authorNameInput.value.trim() ? authorNameInput.value.trim() : "Bakery Guest";
 
       const feedbackData = {
-        id: Date.now(),
+        id: 'rev_' + Date.now(),
         rating: currentRating,
         comment: commentText || (selectedItem ? `Loved the ${selectedItem}!` : "Great bakery treats!"),
-        author: "Bakery Guest",
-        role: selectedItem ? `Reviewed ${selectedItem}` : "Verified Buyer",
-        timestamp: "Just now",
-        createdAt: new Date().toISOString()
+        author: author,
+        role: selectedItem || "General Review",
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' today'
       };
 
-      // 1. Log to Browser Console
-      console.log("%c★ Nimrasa Bakers Review Received! ★", "color: #f59e0b; font-weight: bold; font-size: 14px;");
-      console.log("Rating:", currentRating, "out of 5 stars");
-      console.log("Item:", selectedItem || "General Bakery Review");
-      console.log("Written Feedback:", commentText || "(None provided)");
+      const stored = getSavedReviews();
+      stored.unshift(feedbackData);
+      localStorage.setItem('bakery_feedbacks', JSON.stringify(stored));
 
-      // 2. Save to localStorage
-      try {
-        const stored = JSON.parse(localStorage.getItem('bakery_feedbacks') || '[]');
-        stored.unshift(feedbackData);
-        localStorage.setItem('bakery_feedbacks', JSON.stringify(stored));
-      } catch (err) {
-        console.warn("Could not save to localStorage:", err);
-      }
+      renderAll();
 
-      // 3. Re-render dynamic reviews section
-      renderReviews();
-
-      // 4. Replace form content with confirmation message
       modalFormContent.classList.add('hidden');
       modalSuccessContent.classList.remove('hidden');
 
-      // 5. Auto-close modal after 2 seconds
       setTimeout(() => {
         closeModal();
-      }, 2000);
+      }, 1500);
     }
 
-    // --- Render Feedback Cards in Showcase Section ---
-    function renderReviews() {
-      let savedFeedbacks = [];
+    function getSavedReviews() {
       try {
-        savedFeedbacks = JSON.parse(localStorage.getItem('bakery_feedbacks') || '[]');
+        return JSON.parse(localStorage.getItem('bakery_feedbacks') || '[]');
       } catch (e) {
-        savedFeedbacks = [];
+        return [];
+      }
+    }
+
+    function renderAll() {
+      const saved = getSavedReviews();
+      const allReviews = [...saved, ...defaultReviews];
+
+      document.getElementById('totalReviewsCount').textContent = allReviews.length;
+      if (allReviews.length > 0) {
+        const avg = (allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length).toFixed(1);
+        document.getElementById('averageRatingDisplay').querySelector('span').textContent = avg;
       }
 
-      const allReviews = [...savedFeedbacks, ...defaultReviews];
       reviewsGrid.innerHTML = '';
-
       allReviews.slice(0, 6).forEach((rev) => {
         let starsHtml = '';
         for (let i = 1; i <= 5; i++) {
-          if (i <= rev.rating) {
-            starsHtml += '<i class="fa-solid fa-star text-amber-400 text-sm"></i>';
-          } else {
-            starsHtml += '<i class="fa-solid fa-star text-slate-700 text-sm"></i>';
-          }
+          starsHtml += i <= rev.rating 
+            ? '<i class="fa-solid fa-star text-amber-400 text-sm"></i>' 
+            : '<i class="fa-solid fa-star text-slate-700 text-sm"></i>';
         }
 
         const card = document.createElement('div');
@@ -604,9 +682,7 @@
         card.innerHTML = `
           <div>
             <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center gap-1">
-                ${starsHtml}
-              </div>
+              <div class="flex items-center gap-1">${starsHtml}</div>
               <span class="text-xs text-slate-500 font-medium">${escapeHtml(rev.timestamp)}</span>
             </div>
             <p class="text-sm text-slate-300 italic mb-6 leading-relaxed">"${escapeHtml(rev.comment)}"</p>
@@ -623,54 +699,94 @@
         `;
         reviewsGrid.appendChild(card);
       });
+
+      reviewsTableBody.innerHTML = '';
+      if (allReviews.length === 0) {
+        reviewsTableBody.innerHTML = `<tr><td colspan="6" class="px-6 py-6 text-center text-slate-500">No reviews recorded yet.</td></tr>`;
+      } else {
+        allReviews.forEach((rev) => {
+          const row = document.createElement('tr');
+          row.className = "hover:bg-slate-900/80 transition-colors";
+          row.innerHTML = `
+            <td class="px-6 py-4 font-semibold text-white">${escapeHtml(rev.author)}</td>
+            <td class="px-6 py-4 text-amber-400 font-bold">${rev.rating} ★</td>
+            <td class="px-6 py-4 text-xs text-slate-400">${escapeHtml(rev.role)}</td>
+            <td class="px-6 py-4 text-xs text-slate-300 max-w-xs truncate">${escapeHtml(rev.comment)}</td>
+            <td class="px-6 py-4 text-xs text-slate-500">${escapeHtml(rev.timestamp)}</td>
+            <td class="px-6 py-4 text-right space-x-2">
+              <button onclick="inspectReview('${rev.id}')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs transition-colors">View</button>
+              ${rev.id.startsWith('rev_') ? `<button onclick="deleteReview('${rev.id}')" class="px-2.5 py-1 rounded bg-rose-950/80 hover:bg-rose-900 text-rose-300 text-xs transition-colors">Delete</button>` : ''}
+            </td>
+          `;
+          reviewsTableBody.appendChild(row);
+        });
+      }
+    }
+
+    function inspectReview(id) {
+      const saved = getSavedReviews();
+      const all = [...saved, ...defaultReviews];
+      const rev = all.find(r => r.id === id);
+      if (!rev) return;
+
+      document.getElementById('inspectAuthor').textContent = rev.author;
+      document.getElementById('inspectStars').textContent = rev.rating + ' / 5 Stars';
+      document.getElementById('inspectItem').textContent = rev.role;
+      document.getElementById('inspectComment').textContent = rev.comment;
+      document.getElementById('inspectTimestamp').textContent = rev.timestamp;
+
+      modalFormContent.classList.add('hidden');
+      modalSuccessContent.classList.add('hidden');
+      modalInspectContent.classList.remove('hidden');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function deleteReview(id) {
+      const stored = getSavedReviews().filter(r => r.id !== id);
+      localStorage.setItem('bakery_feedbacks', JSON.stringify(stored));
+      renderAll();
+    }
+
+    function clearAllReviews() {
+      if (confirm('Are you sure you want to delete all saved user reviews?')) {
+        localStorage.removeItem('bakery_feedbacks');
+        renderAll();
+      }
     }
 
     function escapeHtml(str) {
       if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
     }
 
-    // --- Page Initialization ---
+    window.addEventListener('hashchange', checkUrlHash);
+
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Display modal prompt 0.8s after page loads
+      renderAll();
+      checkUrlHash();
+
       setTimeout(() => {
         openModal();
       }, 800);
 
-      // 2. Render initial customer reviews
-      renderReviews();
-
-      // 3. Skip & close button listeners
       closeModalCross.addEventListener('click', closeModal);
       skipModalBtn.addEventListener('click', closeModal);
 
-      // Close when clicking modal backdrop
       modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
+        if (e.target === modal) closeModal();
       });
 
-      // Escape key closes modal
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.classList.contains('opacity-0')) {
-          closeModal();
-        }
-      });
-
-      // Re-open modal buttons
-      triggerButtons.forEach(btn => {
-        if (btn) {
-          btn.addEventListener('click', () => {
-            document.getElementById('itemContextTag').classList.add('hidden');
-            openModal();
-          });
-        }
+      [
+        document.getElementById('navReviewBtn'),
+        document.getElementById('heroReviewBtn'),
+        document.getElementById('sectionReviewBtn'),
+        document.getElementById('footerReviewBtn')
+      ].forEach(btn => {
+        if (btn) btn.addEventListener('click', () => {
+          document.getElementById('itemContextTag').classList.add('hidden');
+          openModal();
+        });
       });
     });
   </script>
